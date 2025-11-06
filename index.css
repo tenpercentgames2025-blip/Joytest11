@@ -34,8 +34,8 @@
 }
 
 @font-face {
-    font-family: 'BlackHanSans-Regular';
-    src: url('images/font/BlackHanSans-Regular.TTF') format('truetype');
+    font-family: 'HMFMOLD';
+    src: url('images/font/HMFMOLD.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -308,7 +308,7 @@ html {
 .nav a {
     color: #fff;
     text-decoration: none;
-    font-family: 'BlackHanSans-Regular', sans-serif;
+    font-family: 'HMKMMAG', sans-serif;
     font-size: 18px;
     transition: color 0.3s ease;
     padding: 10px 20px;
@@ -368,22 +368,16 @@ section + section {
     line-height: 0;
 }
 
-/* 스토어 버튼 영역 */
+/* 스토어 버튼 영역 - 기본 스타일 (사용 안 함) */
 .store-buttons {
     position: absolute;
-    bottom: 8%;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
-    gap: 200px;
     justify-content: center;
     align-items: center;
     z-index: 10;
 }
 
 .store-btn {
-    width: 250px;
-    height: 70px;
     display: block;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -394,6 +388,53 @@ section + section {
 }
 
 .store-btn:hover {
+    opacity: 0.1;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* HOME 섹션 (상단) 스토어 버튼 스타일 */
+.top-section-1 .store-buttons {
+    bottom: 8%;
+    left: auto;
+    right: 23%;
+    transform: none;
+    gap: 145px;
+}
+
+.top-section-1 .store-btn {
+    width: 180px;
+    height: 70px;
+}
+
+.top-section-1 .store-btn.steam-btn {
+    margin-left: -60px;
+}
+
+.top-section-1 .store-btn.onestore-btn {
+    margin-left: -60px;
+}
+
+.top-section-1 .store-btn:hover {
+    opacity: 0.1;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* Event 섹션 (하단) 스토어 버튼 스타일 */
+.main-section-1 .store-buttons {
+    bottom: 16%;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 70px;
+}
+
+.main-section-1 .store-btn {
+    width: 200px;
+    height: 70px;
+}
+
+.main-section-1 .store-btn:hover {
     opacity: 0.1;
     background: rgba(255, 255, 255, 0.1);
     transform: scale(1.05);
@@ -520,12 +561,37 @@ section + section {
         margin-bottom: 0 !important;
     }
 
-    .store-buttons {
-        bottom: 6%;
-        gap: 30px;
+    /* HOME 섹션 (상단) 모바일 스타일 */
+    .top-section-1 .store-buttons {
+        bottom: 5%;
+        gap: 20px;
+        left: auto;
+        right: 22%;
+        transform: none;
     }
 
-    .store-btn {
+    .top-section-1 .store-btn {
+        width: 40px;
+        height: 20px;
+    }
+
+    .top-section-1 .store-btn.steam-btn {
+        margin-left: -10px;
+    }
+
+    .top-section-1 .store-btn.onestore-btn {
+        margin-left: -10px;
+    }
+
+    /* Event 섹션 (하단) 모바일 스타일 */
+    .main-section-1 .store-buttons {
+        bottom: 6%;
+        gap: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .main-section-1 .store-btn {
         width: 50px;
         height: 50px;
     }
@@ -616,14 +682,39 @@ section + section {
         margin-bottom: 0 !important;
     }
 
-    .store-buttons {
+    /* HOME 섹션 (상단) 모바일 스타일 */
+    .top-section-1 .store-buttons {
         bottom: 5%;
-        gap: 30px;
+        gap: 20px;
+        left: auto;
+        right: 22%;
+        transform: none;
     }
 
-    .store-btn {
-        width: 50px;
-        height: 40px;
+    .top-section-1 .store-btn {
+        width: 40px;
+        height: 20px;
+    }
+
+    .top-section-1 .store-btn.steam-btn {
+        margin-left: -10px;
+    }
+
+    .top-section-1 .store-btn.onestore-btn {
+        margin-left: -10px;
+    }
+
+    /* Event 섹션 (하단) 모바일 스타일 */
+    .main-section-1 .store-buttons {
+        bottom: 15%;
+        gap: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .main-section-1 .store-btn {
+        width: 30px;
+        height: 20px;
     }
 }
 
