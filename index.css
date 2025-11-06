@@ -1,0 +1,634 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 커스텀 폰트 추가 */
+@font-face {
+    font-family: 'BlackHanSans';
+    src: url('images/font/BlackHanSans-Regular+.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'H2GTRE';
+    src: url('images/font/H2GTRE.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'COOPBL';
+    src: url('images/font/COOPBL.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMKMRHD';
+    src: url('images/font/HMKMRHD.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMFMOLD';
+    src: url('images/font/HMFMOLD.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMFMMUEX';
+    src: url('images/font/HMFMMUEX.TTC') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HMKMMAG';
+    src: url('images/font/HMKMMAG.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+/* 헤더 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    height: 81px;
+    box-sizing: border-box;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.header-logo {
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.header-logo a {
+    display: block;
+    height: 100%;
+}
+
+/* PC 네비게이션 */
+.pc-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pc-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'HMKMMAG', sans-serif;
+    font-size: 23px;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    position: relative;
+}
+
+.pc-nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.pc-nav a:hover {
+    color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.pc-nav a:hover::before {
+    width: 80%;
+}
+
+/* Event 별 반짝임 효과 */
+.event-link .star {
+    display: inline-block;
+    animation: twinkle 1.5s ease-in-out infinite;
+    margin-left: 5px;
+    color: #ffd700;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(15deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    75% {
+        opacity: 0.5;
+        transform: scale(1.2) rotate(-15deg);
+    }
+}
+
+.nav-divider {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 모바일 메뉴 버튼 */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50px;
+    height: 45px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1002;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-btn:hover {
+    background: #1a1a1a;
+    transform: scale(1.05);
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1003;
+    pointer-events: none;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+    background-color: #fff;
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+    background-color: #fff;
+}
+
+/* 사이드 네비게이션 - PC/모바일 공통 */
+.nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.98);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    border-left: 2px solid #333;
+}
+
+.nav.active {
+    right: 0;
+}
+
+/* 사이드 네비게이션 닫기 버튼 */
+.nav-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 0;
+}
+
+.nav-close-btn span {
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.nav-close-btn span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.nav-close-btn span:nth-child(2) {
+    transform: rotate(-45deg);
+}
+
+.nav-close-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+.nav-close-btn:hover span {
+    background-color: #ffd700;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.nav-close-btn:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'HMKMMAG', sans-serif;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+}
+
+.nav a:hover {
+    color: #ffd700;
+}
+
+/* 이미지 섹션 공통 스타일 */
+.image-section {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    line-height: 0;
+    font-size: 0;
+    display: block;
+    position: relative;
+}
+
+/* 헤더가 fixed이므로 첫 섹션에 여백 추가 */
+.top-section-1 {
+    margin-top: 81px;
+}
+
+/* top-section-2도 id를 가지고 있으므로 여백 제거 보장 */
+.top-section-2 {
+    margin-top: 0 !important;
+}
+
+/* 모든 섹션이 붙어있도록 추가 보장 */
+.top-section-2,
+.main-section-1,
+.main-section-2,
+.webtoon-section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 섹션과 섹션 사이 여백 완전 제거 */
+section + section {
+    margin-top: 0 !important;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    vertical-align: top;
+    line-height: 0;
+}
+
+/* 스토어 버튼 영역 */
+.store-buttons {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.store-btn {
+    width: 250px;
+    height: 70px;
+    display: block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    opacity: 0;
+    /* 투명하게 만들어서 이미지의 버튼이 보이도록 */
+}
+
+.store-btn:hover {
+    opacity: 0.1;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+/* 푸터 섹션 */
+.footer {
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    margin: 0;
+    border: none;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 0 20px;
+}
+
+.footer-text-line1 {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-size: 13px;
+    color: #666666;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.footer-text-line2 {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    font-size: 11px;
+    color: #000000;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 20px;
+        height: 65px;
+    }
+
+    .header-container {
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .header-logo {
+        height: 40px;
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+    }
+
+    .top-section-1 {
+        margin-top: 95px;
+    }
+
+    .pc-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav {
+        width: 70%;
+    }
+
+    .nav-close-btn {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .nav-close-btn span {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    .footer {
+        height: 80px;
+        padding: 0;
+    }
+
+    .footer-container {
+        padding: 0 15px;
+    }
+
+    .footer-text-line1 {
+        font-size: 12px;
+    }
+
+    .footer-text-line2 {
+        font-size: 10px;
+    }
+
+    .image-section {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .top-section-2,
+    .main-section-1,
+    .main-section-2,
+    .webtoon-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .store-buttons {
+        bottom: 6%;
+        gap: 30px;
+    }
+
+    .store-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+        height: 56px;
+    }
+
+    .header-container {
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .header-logo {
+        height: 35px;
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+    }
+
+    .top-section-1 {
+        margin-top: 56px !important;
+    }
+
+    .mobile-menu-btn {
+        width: 45px;
+        height: 40px;
+        padding: 8px;
+    }
+
+    .mobile-menu-btn span {
+        height: 2.5px;
+    }
+
+    .nav {
+        width: 80%;
+    }
+
+    .nav-close-btn {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .nav-close-btn span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .nav a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .footer {
+        height: 80px;
+        padding: 0;
+    }
+
+    .footer-container {
+        padding: 0 10px;
+        gap: 3px;
+    }
+
+    .footer-text-line1 {
+        font-size: 11px;
+    }
+
+    .footer-text-line2 {
+        font-size: 9px;
+    }
+
+    .image-section {
+        padding: 0 !important;
+        border: none !important;
+    }
+
+    .top-section-2,
+    .main-section-1,
+    .main-section-2,
+    .webtoon-section {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .store-buttons {
+        bottom: 5%;
+        gap: 30px;
+    }
+
+    .store-btn {
+        width: 50px;
+        height: 40px;
+    }
+}
+
+/* 스크롤 스무스 */
+html {
+    scroll-behavior: smooth;
+}
+
