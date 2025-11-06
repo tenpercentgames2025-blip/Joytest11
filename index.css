@@ -34,8 +34,8 @@
 }
 
 @font-face {
-    font-family: 'HMFMOLD';
-    src: url('images/font/HMFMOLD.TTF') format('truetype');
+    font-family: 'BlackHanSans-Regular';
+    src: url('images/font/BlackHanSans-Regular.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -308,7 +308,7 @@ html {
 .nav a {
     color: #fff;
     text-decoration: none;
-    font-family: 'HMKMMAG', sans-serif;
+    font-family: 'BlackHanSans-Regular', sans-serif;
     font-size: 18px;
     transition: color 0.3s ease;
     padding: 10px 20px;
