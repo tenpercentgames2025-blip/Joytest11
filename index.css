@@ -396,10 +396,9 @@ section + section {
 /* HOME 섹션 (상단) 스토어 버튼 스타일 */
 .top-section-1 .store-buttons {
     bottom: 8%;
-    left: auto;
-    right: 23%;
-    transform: none;
-    gap: 145px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 120px; /* 버튼 간격을 균등하게 조절 */
 }
 
 .top-section-1 .store-btn {
